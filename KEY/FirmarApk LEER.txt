@@ -1,0 +1,45 @@
+It would be better if instead of Renaming the .java file and the class name, you just make your changes in:
+
+AndroidManifest.xml
+config.xml
+Then remove android support with cordova platform remove android
+And then re-add the android support  cordova platform add android
+
+
+
+
+
+
+
+/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*
+Try to change platforms/android/androidManifest.xml
+android:versionCode="502" android:versionName="1.2.0"
+
+Try to change YOURPROYECT/config.XML
+version="1.2.0"
+
+
+
+
+-----DESDE LA RUTA ORIGNAL DEL PROYECTO:
+ionic cordova build android
+
+-----DEDE LA RUTA DONDE SE GENERO EL APK DEBUG:
+ionic cordova build android --prod --release
+
+
+-----DEDE LA RUTA DONDE SE GENERO EL APK RELEASE:
+
+-----SI NO HAY LICENCIA GENERADA:
+keytool -genkey -v -keystore tuyonke-key.keystore -alias tuyonke -keyalg RSA -keysize 2048 -validity 10000
+
+
+-----SI YA EXISTE LISNECIA:
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tuyonke-key.keystore app-release-unsigned.apk tuyonke
+
+-----COPIAR ZIPALIGN A LA CARPETA DEL APK RELEASE
+./zipalign -v 4 app-release-unsigned.apk tuyonkeApp.apk
+
+
+
+https://www.nigmacode.com/ionic/Exportar-y-firmar-APK-en-Ionic

@@ -1,0 +1,125 @@
+<ion-content>
+    <ion-button (click)="closeModal()" class="back-button" expand="block" fill="clear">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-label class="titulo"></ion-label>
+
+    <p class="main-title-light" style="margin-top: 40px; padding-left: 23px;">Editar yonke</p>
+
+
+
+
+    <ion-row justify-content-around style="margin: 10px; padding-top: 5px;">
+
+
+        <ion-grid>
+            <ion-row style="text-align:center">
+                <ion-col class="poster-detalle-sobre ion-no-padding ion-no-border" (click)="choosePhoto()">
+                    <img *ngIf="yonkePhoto == 'yes'" [style.background-image]="yonke.Photo | domSanitizer" class="poster">
+                    <img *ngIf="yonkePhoto == 'no'" [style.background-image]="'https://tuyonke.mx/controllers/images/yonkes/icon.png' | domSanitizer" class="poster">
+                    <img *ngIf="yonkePhoto == 'new'" [style.background-image]="tempProfileImage | domSanitizer" class="poster">
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+
+
+        <ion-col size="12">
+            <ion-label class="form-label-text">Nombre</ion-label>
+            <ion-input [(ngModel)]="Name" placeholder="Yonke López" clearInput></ion-input>
+        </ion-col>
+
+        <ion-col size="6">
+            <ion-label class="form-label-text">Categoria</ion-label>
+            <ion-item text-center>
+                <ion-label></ion-label>
+                <ion-select [(ngModel)]="Category" okText="Ok" cancelText="Cancelar" placeholder="Yonke">
+                    <ion-select-option value="Personal">Personal</ion-select-option>
+                    <ion-select-option value="Refaccionaria">Refaccionaria</ion-select-option>
+                    <ion-select-option value="Taller">Taller</ion-select-option>
+                    <ion-select-option value="Yonke">Yonke</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-col>
+        <ion-col size="6">
+            <ion-label class="form-label-text">Teléfono</ion-label>
+            <ion-input [(ngModel)]="Phone" placeholder="614 123 45 67" clearInput></ion-input>
+        </ion-col>
+
+        <ion-col size="6">
+            <ion-label class="form-label-text">WhatsApp</ion-label>
+            <ion-input [(ngModel)]="WhatsApp" placeholder="614 123 45 67" clearInput></ion-input>
+        </ion-col>
+        <ion-col size="6" style="margin-bottom: 0px;">
+            <ion-label class="form-label-text">Dirección</ion-label>
+            <ion-input [(ngModel)]="Address" placeholder="Av. cuauhtémoc" clearInput></ion-input>
+        </ion-col>
+
+        <ion-col size="6" style="margin-bottom: 0px;">
+            <ion-label class="form-label-text">Numéro</ion-label>
+            <ion-input [(ngModel)]="AddressNumber" placeholder="40" clearInput></ion-input>
+        </ion-col>
+        <ion-col size="6" style="margin-bottom: 0px;">
+            <ion-label class="form-label-text">Colonia</ion-label>
+            <ion-input [(ngModel)]="AddressSubur" placeholder="Las Granjas" clearInput></ion-input>
+        </ion-col>
+        <ion-col size="6">
+            <ion-label class="form-label-text">Estado</ion-label>
+            <ion-item text-center>
+                <ion-label></ion-label>
+                <ion-select [(ngModel)]="State" okText="Ok" cancelText="Cancelar" placeholder="Distrito Federal">
+                    <ion-select-option value="Distrito Federal">Distrito Federal</ion-select-option>
+                    <ion-select-option value="Aguascalientes">Aguascalientes</ion-select-option>
+                    <ion-select-option value="Baja California">Baja California</ion-select-option>
+                    <ion-select-option value="Baja California Sur">Baja California Sur</ion-select-option>
+                    <ion-select-option value="Campeche">Campeche</ion-select-option>
+                    <ion-select-option value="Chiapas">Chiapas</ion-select-option>
+                    <ion-select-option value="Chihuahua">Chihuahua</ion-select-option>
+                    <ion-select-option value="Coahuila">Coahuila</ion-select-option>
+                    <ion-select-option value="Colima">Colima</ion-select-option>
+                    <ion-select-option value="Durango">Durango</ion-select-option>
+                    <ion-select-option value="Guanajuato">Guanajuato</ion-select-option>
+                    <ion-select-option value="Guerrero">Guerrero</ion-select-option>
+                    <ion-select-option value="Hidalgo">Hidalgo</ion-select-option>
+                    <ion-select-option value="Jalisco">Jalisco</ion-select-option>
+                    <ion-select-option value="Mexico">Mexico</ion-select-option>
+                    <ion-select-option value="Michoacan">Michoacan</ion-select-option>
+                    <ion-select-option value="Morelos">Morelos</ion-select-option>
+                    <ion-select-option value="Nayarit">Nayarit</ion-select-option>
+                    <ion-select-option value="Nuevo Léon">Nuevo Léon</ion-select-option>
+                    <ion-select-option value="Oaxaca">Oaxaca</ion-select-option>
+                    <ion-select-option value="Puebla">Puebla</ion-select-option>
+                    <ion-select-option value="Queretaro">Queretaro</ion-select-option>
+                    <ion-select-option value="Quintana Roo">Quintana Roo</ion-select-option>
+                    <ion-select-option value="San Luis Potosi">San Luis Potosi</ion-select-option>
+                    <ion-select-option value="Sinaloa">Sinaloa</ion-select-option>
+                    <ion-select-option value="Sonora">Sonora</ion-select-option>
+                    <ion-select-option value="Tabasco">Tabasco</ion-select-option>
+                    <ion-select-option value="Tamaulipas">Tamaulipas</ion-select-option>
+                    <ion-select-option value="Tlaxcala">Tlaxcala</ion-select-option>
+                    <ion-select-option value="Veracruz">Veracruz</ion-select-option>
+                    <ion-select-option value="Yucatan">Yucatan</ion-select-option>
+                    <ion-select-option value="Zacatecas">Zacatecas</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-col>
+        <ion-col size="6" style="margin-bottom: 0px;">
+            <ion-label class="form-label-text">Ciudad</ion-label>
+            <ion-input [(ngModel)]="City" placeholder="Cuauhtémoc" clearInput></ion-input>
+        </ion-col>
+        <ion-col size="12" style="margin-bottom: 0px;">
+            <ion-label class="form-label-text">Información extra</ion-label>
+            <ion-textarea [(ngModel)]="Description" rows="6" clearOnEdit="true" clearInput></ion-textarea>
+        </ion-col>
+
+    </ion-row>
+
+
+    <section style="padding:7px">
+
+
+        <ion-button [disabled]="Name == '' || Category == ''  ||  Phone == '' ||  WhatsApp  == '' ||  Address == ''  || AddressNumber == ''  || AddressSubur == ''  || State == ''  || City == ''  " expand="block " color="primary " (click)="editYonke() ">Editar</ion-button>
+
+
+    </section>
+</ion-content>

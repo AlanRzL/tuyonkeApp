@@ -1,0 +1,7 @@
+<ion-col size="6" style=" display: inline-block;" (click)="showCarDetails(car)" lines="none">
+    <ion-card style="background-color: #f4f5f8;" class="ion-no-padding ion-no-margin ion-text-center" lines="none" size="6">
+        <img class="details-image" [style.background-image]=" car.Photo1 | domSanitizer" lines="none">
+        <ion-card-subtitle style="margin-top: 5px;">{{car.Brand}} {{car.Model}} </ion-card-subtitle>
+        <ion-card-subtitle style="margin-bottom: 5px;">{{car.Year}} </ion-card-subtitle>
+    </ion-card>
+</ion-col>

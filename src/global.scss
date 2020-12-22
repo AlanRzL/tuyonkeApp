@@ -1,0 +1,103 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@font-face {
+    font-family: 'GilroyLight';
+    src: url('./assets/fonts/Gilroy-Light.otf');
+}
+
+@font-face {
+    font-family: 'GilroyExtraBold';
+    src: url('./assets/fonts/Gilroy-ExtraBold.otf');
+}
+
+* {
+    // color: #777a95;
+    color: #303130d1;
+    font-family: 'GilroyLight';
+}
+
+.searchbar-input.sc-ion-searchbar-md {
+    border-radius: 20px;
+    background-position: left 8px center;
+    height: auto;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #7f8490;
+    background-color: white;
+    /*-webkit-box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.1) !important;@error*/
+    -webkit-box-shadow: 1px 3px 11px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 1px 3px 11px rgba(0, 0, 0, .2) !important;
+}
+
+//Back Button
+.back-button {
+    z-index: 999;
+    position: fixed;
+    top: -2px;
+    left: -8px;
+}
+
+.back-button ion-icon {
+    color: white !important;
+}
+
+.main-title {
+    font-family: 'GilroyExtraBold';
+    padding-left: 6px;
+    font-size:3rem;
+    font-weight: bold;
+    color: black !important;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    line-height: 30pt;
+}
+
+.titulo {
+    width: 100%;
+    position: fixed;
+    color: white;
+    background-color: red;
+    padding: 5px 5px 40px 5px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    /* IE6-9 */
+}
+
+ion-button {
+    color: white !important;
+    font-family: 'GilroyLight';
+}

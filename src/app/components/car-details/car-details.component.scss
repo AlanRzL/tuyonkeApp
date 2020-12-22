@@ -1,0 +1,29 @@
+.details-image {
+    width: 100% !important;
+    height: 290px !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+}
+
+ion-button div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+ion-button {
+    height: 45px;
+}
+
+.ion-icons-group ion-button ion-icon {
+    font-size: 23px;
+    padding-bottom: 5px;
+}
+
+.car-title {
+    padding-bottom: 10px;
+    font-family: 'GilroyExtraBold';
+}

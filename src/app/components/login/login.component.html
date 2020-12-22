@@ -1,0 +1,114 @@
+<ion-content>
+    <ion-button (click)="closeModal()" class="back-button" expand="block" fill="clear">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-label class="titulo"></ion-label>
+
+    <section *ngIf="registerOrLogin == 'Register'" style="padding:10px">
+        <p class="main-title-light" style="margin-top: 30px;">Registrarse</p>
+
+
+        <ion-col size="12" class="myPhoto">
+            <img src="../assets/images/login.png">
+        </ion-col>
+
+        <ion-row justify-content-around style="margin: 5px; padding-top: 10px;">
+            <ion-col size="12">
+                <ion-label class="form-label-text">Nombre completo</ion-label>
+                <ion-input [(ngModel)]="Name" placeholder="Alan Ramírez" autocomplete="off" clearInput></ion-input>
+            </ion-col>
+            <ion-col size="6">
+                <ion-label class="form-label-text">Estado</ion-label>
+                <ion-item text-center>
+                    <ion-label>Estado</ion-label>
+                    <ion-select [(ngModel)]="State" okText="Ok" cancelText="Cancelar" placeholder="Distrito Federal">
+                        <ion-select-option value="Distrito Federal">Distrito Federal</ion-select-option>
+                        <ion-select-option value="Aguascalientes">Aguascalientes</ion-select-option>
+                        <ion-select-option value="Baja California">Baja California</ion-select-option>
+                        <ion-select-option value="Baja California Sur">Baja California Sur</ion-select-option>
+                        <ion-select-option value="Campeche">Campeche</ion-select-option>
+                        <ion-select-option value="Chiapas">Chiapas</ion-select-option>
+                        <ion-select-option value="Chihuahua">Chihuahua</ion-select-option>
+                        <ion-select-option value="Coahuila">Coahuila</ion-select-option>
+                        <ion-select-option value="Colima">Colima</ion-select-option>
+                        <ion-select-option value="Durango">Durango</ion-select-option>
+                        <ion-select-option value="Guanajuato">Guanajuato</ion-select-option>
+                        <ion-select-option value="Guerrero">Guerrero</ion-select-option>
+                        <ion-select-option value="Hidalgo">Hidalgo</ion-select-option>
+                        <ion-select-option value="Jalisco">Jalisco</ion-select-option>
+                        <ion-select-option value="Mexico">Mexico</ion-select-option>
+                        <ion-select-option value="Michoacan">Michoacan</ion-select-option>
+                        <ion-select-option value="Morelos">Morelos</ion-select-option>
+                        <ion-select-option value="Nayarit">Nayarit</ion-select-option>
+                        <ion-select-option value="Nuevo Léon">Nuevo Léon</ion-select-option>
+                        <ion-select-option value="Oaxaca">Oaxaca</ion-select-option>
+                        <ion-select-option value="Puebla">Puebla</ion-select-option>
+                        <ion-select-option value="Queretaro">Queretaro</ion-select-option>
+                        <ion-select-option value="Quintana Roo">Quintana Roo</ion-select-option>
+                        <ion-select-option value="San Luis Potosi">San Luis Potosi</ion-select-option>
+                        <ion-select-option value="Sinaloa">Sinaloa</ion-select-option>
+                        <ion-select-option value="Sonora">Sonora</ion-select-option>
+                        <ion-select-option value="Tabasco">Tabasco</ion-select-option>
+                        <ion-select-option value="Tamaulipas">Tamaulipas</ion-select-option>
+                        <ion-select-option value="Tlaxcala">Tlaxcala</ion-select-option>
+                        <ion-select-option value="Veracruz">Veracruz</ion-select-option>
+                        <ion-select-option value="Yucatan">Yucatan</ion-select-option>
+                        <ion-select-option value="Zacatecas">Zacatecas</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="6">
+                <ion-label class="form-label-text">Ciudad</ion-label>
+                <ion-input [(ngModel)]="City" placeholder="Chihuahua" autocomplete="off" clearInput></ion-input>
+            </ion-col>
+            <ion-col size="6">
+                <ion-label class="form-label-text">Email</ion-label>
+                <ion-input [(ngModel)]="Email" placeholder="micorreo@gmail.com" autocomplete="off" clearInput></ion-input>
+            </ion-col>
+            <ion-col size="6">
+                <ion-label class="form-label-text">Contraseña</ion-label>
+                <ion-input type="password" [(ngModel)]="Password" autocomplete="off" clearInput></ion-input>
+            </ion-col>
+        </ion-row>
+        <section style="padding:0px 15px">
+            <ion-button [disabled]="Name == ''  ||  State == '' ||  City  == ''  ||  Email == '' ||  City == '' " expand="block" (click)="registerCustomer()">Registrar</ion-button>
+            <ion-row class="ion-align-items-center">
+                <ion-col size="12" class="ion-text-center">
+                    <ion-button style="color:black !important; box-shadow: none;--box-shadow: none;" size="small" (click)="changeRegisterOrLogin('Login') " color="Primary">
+                        Iniciar Sesión
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </section>
+    </section>
+
+
+    <section *ngIf="registerOrLogin == 'Login'" style="padding:10px">
+        <p class="main-title-light" style="margin-top: 30px;">Iniciar Sesión</p>
+        <ion-col size="12" class="myPhoto">
+            <img src="../assets/images/login.png">
+        </ion-col>
+        <ion-row justify-content-around style="margin: 5px; padding-top: 10px;">
+            <ion-col size="12">
+                <ion-label class="form-label-text">Email</ion-label>
+                <ion-input [(ngModel)]="sessionEmail" placeholder="micorreo@gmail.com" autocomplete="off" clearInput></ion-input>
+            </ion-col>
+            <ion-col size="12">
+                <ion-label class="form-label-text">Contraseña</ion-label>
+                <ion-input type="password" [(ngModel)]="sessionPassword" autocomplete="off" clearInput></ion-input>
+            </ion-col>
+        </ion-row>
+        <section style="padding:0px 15px">
+            <ion-button [disabled]="sessionEmail == ''  ||  sessionPassword == '' " expand="block" (click)="startSession()">Iniciar Sesión</ion-button>
+            <ion-row class="ion-align-items-center">
+                <ion-col size="12" class="ion-text-center">
+                    <ion-button style="color:black !important; box-shadow: none;--box-shadow: none;" size="small" (click)="changeRegisterOrLogin('Register') " color="Primary">
+                        Registrarse
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </section>
+    </section>
+
+
+</ion-content>

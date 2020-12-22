@@ -1,0 +1,31 @@
+* {
+    // color: #777a95;
+    color: #303130d1;
+    font-family: 'GilroyLight';
+}
+
+ion-card-subtitle {
+    font-size: .87rem !important;
+    margin-top: 0px !important;
+}
+
+ion-card-title {
+    font-size: .87rem !important;
+    margin-bottom: 5px;
+}
+
+.card-city {
+    font-size: .75rem;
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+.details-image {
+    width: 100% !important;
+    height: 150px !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+}

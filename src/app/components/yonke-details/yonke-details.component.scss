@@ -1,0 +1,58 @@
+
+.poster-detalle-sobre {
+    position: relative;
+    top: -120px;
+    /* left: -10px; */
+    margin-bottom: -75px;
+}
+
+.poster {    
+    width: 160px !important;
+    height: 160px !important;
+    border-radius: 100% !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 3px solid #ffffff;
+}
+
+.main-image{
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+
+    width: 100% !important;
+    height: 200px !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+
+}
+
+
+.yonke-name{
+    // color: #777a95;
+    color: #303130d1;
+    font-family: 'GilroyExtraBold';
+}
+
+
+.yonke-info{
+    font-size: .9rem;
+    color: #303130d1;
+    font-family: 'GilroyLight';
+    ion-icon{
+        font-size: 1rem;
+        color: #303130d1 !important;
+    }
+    border-bottom: 1px #f9f9f987 solid;
+    padding: 0px 16px 5px 16px;
+}
+
+
+.yonke-description{
+    font-size: 1rem;
+    color: #303130d1;
+    font-family: 'GilroyLight';
+}

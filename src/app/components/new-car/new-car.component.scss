@@ -1,0 +1,81 @@
+* {
+    // color: #777a95;
+    color: #303130d1;
+    font-family: 'GilroyLight';
+}
+
+ion-input,
+ion-textarea {
+    font-family: "GilroyLight";
+    background-position: left 8px center;
+    height: auto;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #7f8490;
+    background-color: #ffffff;
+    border-bottom: 1px solid #00000021;
+    min-height: 49px;
+}
+
+.input-label-text {
+    font-family: 'GilroyLight';
+    //font-family: 'GilroyExtraBold';
+    font-size: .7rem;
+    padding-bottom: 0px !important;
+}
+
+.form-label-text {
+    --color: initial;
+    display: block;
+    color: var(--color);
+    font-family: var(--ion-font-family, inherit);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 0px;
+    font-size: .95rem;
+}
+
+ion-select {
+    font-family: "GilroyLight";
+    max-width: 100% !important;
+    color: #7f8490;
+}
+
+ion-col {
+    margin-bottom: 10px !important;
+}
+
+.main-title-light {
+    background-color: #f4f5f852;
+    margin: -10px -10px 5px -10px;
+    padding: 15px;
+    color: #3880ff !important;
+    font-size: 2.5rem;
+}
+
+.tab-no-session-message {
+    font-family: "GilroyExtraBold";
+    height: auto;
+    font-size: .95rem;
+    font-weight: 400;
+    color: #7f8490 !important;
+    border: 2px dashed #7f8490;
+    border-radius: 5px;
+    /*padding: 10px;
+    margin-top: 40%;*/
+}
+
+.tab-no-session-message p {
+    margin: 5px;
+}
+
+ion-item-option {
+    background-color: #ffffff !important;
+}
+
+ion-button ion-icon {
+    color: white !important;
+}

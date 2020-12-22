@@ -1,0 +1,193 @@
+<!-- Default Segment -->
+<ion-segment *ngIf="ID_User > 0 " [value]="segmentChosen" (ionChange)="segmentChanged($event)" style="background-color: #f4f5f8;">
+    <ion-segment-button value="perfil">
+        <ion-label>Perfil</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="yonkes">
+        <ion-label>Yonkes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="autos">
+        <ion-label>Autos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="partes">
+        <ion-label>Partes</ion-label>
+    </ion-segment-button>
+</ion-segment>
+
+
+
+<ion-content *ngIf="ID_User > 0 ">
+    <section *ngIf="segmentChosen == 'perfil' " style="padding:10px">
+        <p class="main-title-light" (click)="openProfile()">Mi perfil
+            <small class="user-level">{{User.Level}}</small>
+        </p>
+        <ion-row justify-content-around style=" padding-top: 10px;">
+            <ion-col size="12">
+                <ion-label class="form-label-text">Nombre</ion-label>
+                <ion-input [(ngModel)]="Name" placeholder="Alan Ramirez" clearInput></ion-input>
+            </ion-col>
+            <ion-col size="6">
+                <ion-label class="form-label-text">Email</ion-label>
+                <ion-input [(ngModel)]="Email" placeholder="yo@correo.com" clearInput></ion-input>
+            </ion-col>
+            <ion-col size="6">
+                <ion-label class="form-label-text">Teléfono</ion-label>
+                <ion-input [(ngModel)]="Phone" placeholder="614 123 45 67" clearInput></ion-input>
+            </ion-col>
+            <ion-col size="6">
+                <ion-label class="form-label-text">Estado</ion-label>
+                <ion-item text-center>
+                    <ion-label></ion-label>
+                    <ion-select [(ngModel)]="State" okText="Ok" cancelText="Cancelar" placeholder="Distrito Federal">
+                        <ion-select-option value="Distrito Federal">Distrito Federal</ion-select-option>
+                        <ion-select-option value="Aguascalientes">Aguascalientes</ion-select-option>
+                        <ion-select-option value="Baja California">Baja California</ion-select-option>
+                        <ion-select-option value="Baja California Sur">Baja California Sur</ion-select-option>
+                        <ion-select-option value="Campeche">Campeche</ion-select-option>
+                        <ion-select-option value="Chiapas">Chiapas</ion-select-option>
+                        <ion-select-option value="Chihuahua">Chihuahua</ion-select-option>
+                        <ion-select-option value="Coahuila">Coahuila</ion-select-option>
+                        <ion-select-option value="Colima">Colima</ion-select-option>
+                        <ion-select-option value="Durango">Durango</ion-select-option>
+                        <ion-select-option value="Guanajuato">Guanajuato</ion-select-option>
+                        <ion-select-option value="Guerrero">Guerrero</ion-select-option>
+                        <ion-select-option value="Hidalgo">Hidalgo</ion-select-option>
+                        <ion-select-option value="Jalisco">Jalisco</ion-select-option>
+                        <ion-select-option value="Mexico">Mexico</ion-select-option>
+                        <ion-select-option value="Michoacan">Michoacan</ion-select-option>
+                        <ion-select-option value="Morelos">Morelos</ion-select-option>
+                        <ion-select-option value="Nayarit">Nayarit</ion-select-option>
+                        <ion-select-option value="Nuevo Léon">Nuevo Léon</ion-select-option>
+                        <ion-select-option value="Oaxaca">Oaxaca</ion-select-option>
+                        <ion-select-option value="Puebla">Puebla</ion-select-option>
+                        <ion-select-option value="Queretaro">Queretaro</ion-select-option>
+                        <ion-select-option value="Quintana Roo">Quintana Roo</ion-select-option>
+                        <ion-select-option value="San Luis Potosi">San Luis Potosi</ion-select-option>
+                        <ion-select-option value="Sinaloa">Sinaloa</ion-select-option>
+                        <ion-select-option value="Sonora">Sonora</ion-select-option>
+                        <ion-select-option value="Tabasco">Tabasco</ion-select-option>
+                        <ion-select-option value="Tamaulipas">Tamaulipas</ion-select-option>
+                        <ion-select-option value="Tlaxcala">Tlaxcala</ion-select-option>
+                        <ion-select-option value="Veracruz">Veracruz</ion-select-option>
+                        <ion-select-option value="Yucatan">Yucatan</ion-select-option>
+                        <ion-select-option value="Zacatecas">Zacatecas</ion-select-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col size="6">
+                <ion-label class="form-label-text">Ciudad</ion-label>
+                <ion-input [(ngModel)]="City" placeholder="Mazatlan" clearInput></ion-input>
+            </ion-col>
+            <ion-col size="12">
+                <ion-label class="form-label-text">Contraseña</ion-label>
+                <ion-input type="password" [(ngModel)]="Password" clearInput></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-button style="float:right" color="danger" (click)="deleteSession() ">Salir</ion-button>
+
+        <ion-button style="float:right" [disabled]="Name == ''  ||  Email == '' ||  Phone  == ''  ||  State == '' ||  City == '' " (click)="editUserData() ">Actualizar</ion-button>
+    </section>
+
+
+
+
+    <section *ngIf="segmentChosen == 'yonkes' " style="padding:10px">
+        <p class="main-title-light">Mis yonkes</p>
+        <section class="ion-text-center tab-add-new-message  ion-no-margin" (click)="openNewYonkeComponent()">
+            <p> Publicar nuevo yonke</p>
+            <ion-icon name="book"></ion-icon>
+        </section>
+
+
+
+
+        <ion-list style="padding-right: 20px;">
+            <ion-item-sliding *ngFor="let yonke of yonkes">
+                <ion-item (click)="openEditYonkeComponent(yonke)">
+                    <ion-avatar slot="start">
+                        <img *ngIf="yonke.Photo" [src]="yonke.Photo | image ">
+                        <img *ngIf="!yonke.Photo" src="https://tuyonke.mx/controllers/images/yonkes/icon.png">
+                    </ion-avatar>
+                    <ion-label>
+                        <h2>{{yonke.Name}} </h2>
+                        <h3>{{yonke.Category}}</h3>
+                        <p>{{yonke.Address}} {{yonke.AddressNumber}} {{yonke.AddressSubur}} {{yonke.AdderssCity}} {{yonke.AddressState}} </p>
+                    </ion-label>
+                </ion-item>
+            </ion-item-sliding>
+        </ion-list>
+
+
+
+    </section>
+
+
+
+    <section *ngIf="segmentChosen == 'autos' " style="padding:10px">
+        <p class="main-title-light">Mis autos</p>
+
+        <section class="ion-text-center tab-add-new-message  ion-no-margin" (click)="openNewCarComponent()">
+            <p> Publicar nuevo auto</p>
+            <ion-icon name="car-sport"></ion-icon>
+        </section>
+        <ion-list style="padding-right: 20px;">
+            <ion-item-sliding *ngFor="let car of cars">
+                <ion-item (click)="openEditCarComponent(car)">
+                    <ion-avatar slot="start">
+                        <img [src]="car.Photo1 | image ">
+                    </ion-avatar>
+                    <ion-label>
+                        <h2>{{car.Brand}} {{car.Model}} </h2>
+                        <h3>{{car.Year}}</h3>
+                        <p>{{car.Description}}</p>
+                    </ion-label>
+                </ion-item>
+                <ion-item-options side="start">
+                    <ion-item-option (click)="deleteCar(car)">
+                        <ion-icon slot="icon-only" name="trash"></ion-icon>
+                    </ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+
+
+    </section>
+
+
+
+    <section *ngIf="segmentChosen == 'partes' " style="padding:10px">
+        <p class="main-title-light">Mis autopartes</p>
+
+        <section class="ion-text-center tab-add-new-message  ion-no-margin" (click)="openNewPartComponent()">
+            <p> Publicar nueva parte</p>
+            <ion-icon name="logo-firebase"></ion-icon>
+        </section>
+
+        <ion-list style="padding-right: 20px;">
+            <ion-item-sliding *ngFor="let part of parts">
+                <ion-item (click)="openEditPartComponent(part)">
+                    <ion-avatar slot="start">
+                        <img [src]="part.Photo1 | image ">
+                    </ion-avatar>
+                    <ion-label>
+                        <h2>{{part.Name}}</h2>
+                        <h3>{{part.Brand}} {{part.Model}} {{part.Year}}</h3>
+                        <p>{{part.Description}}</p>
+                    </ion-label>
+                </ion-item>
+                <ion-item-options side="start">
+                    <ion-item-option (click)="deletePart(part)">
+                        <ion-icon slot="icon-only" name="trash"></ion-icon>
+                    </ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+    </section>
+
+</ion-content>
+
+<!-- No session -->
+<ion-col *ngIf="ID_User == 0" size="12" class="ion-text-center noSession" (click)="openLoginCompnent()">
+    <img src="../assets/images/session.png">
+    <p> ¡Inicia sesión o registrate para anunciar GRATIS!</p>
+</ion-col>

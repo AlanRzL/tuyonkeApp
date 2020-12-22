@@ -1,0 +1,140 @@
+<ion-content [fullscreen]="true" color="light">
+
+    <p class="main-title">Partes más recientes</p>
+
+    <ion-searchbar [(ngModel)]="searchValue" placeholder="Buscar" (keyup.enter)="runSearch($event)" (ionCancel)="cancelSearch()" (ionClear)="cancelSearch()" showCancelButton="focus" autocorrect="off">
+    </ion-searchbar>
+
+    <div style="margin: 0px 2px;">
+        <ion-chip size="small" (click)="presentPopover()" style="background-color: #e7eaf3;">
+            <ion-icon name="pin" color="primary"></ion-icon>
+            <ion-label style="color: #3880ff !important;">{{searchState}}</ion-label>
+        </ion-chip>
+    </div>
+
+    <ion-slides *ngIf="showAddsSkeleton == true" [options]="slideOptions">
+        <ion-slide class="image-slide">
+            <ion-thumbnail style="width: 100%; height: 95px;">
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-thumbnail>
+        </ion-slide>
+        <ion-slide class="image-slide">
+            <ion-thumbnail style="width: 100%; height: 95px;">
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-thumbnail>
+        </ion-slide>
+        <ion-slide class="image-slide">
+            <ion-thumbnail style="width: 100%; height: 95px;">
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-thumbnail>
+        </ion-slide>
+        <ion-slide class="image-slide">
+            <ion-thumbnail style="width: 100%; height: 95px;">
+                <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-thumbnail>
+        </ion-slide>
+    </ion-slides>
+
+
+    <ion-slides *ngIf="showAddsSkeleton == false" [options]="slideOptions" #sliderRef>
+        <ion-slide *ngFor="let yonke of yonkesAdds" class="image-slide" [style.background-image]=" yonke.Photo | domSanitizer " (click)="openYonkeDetails(yonke)"></ion-slide>
+    </ion-slides>
+
+
+
+    <div *ngIf="showSkeleton == false" class="appParts">
+        <app-parts [parts]="parts"></app-parts>
+    </div>
+
+
+    <!-- No found -->
+    <ion-col *ngIf="foundParts == false" size="12" class="ion-text-center noPartsFound">
+        <img src="../assets/images/found.svg">
+        <p> No encontramos nada para esta búsqueda, sé el primero en publicar aquí!</p>
+    </ion-col>
+
+
+    <!-- Skeleton screen">-->
+    <div *ngIf="showSkeleton == true" style="margin: 8px 5px;">
+        <ion-col size="6" style=" display: inline-block;">
+            <ion-card class="ion-no-margin ion-text-center menu-card" lines="none">
+                <ion-thumbnail style="width: 100%; height: 120px;">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-thumbnail>
+                <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 45%"></ion-skeleton-text>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6" style=" display: inline-block;">
+            <ion-card class="ion-no-margin ion-text-center menu-card" lines="none">
+                <ion-thumbnail style="width: 100%; height: 120px;">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-thumbnail>
+                <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 45%"></ion-skeleton-text>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6" style=" display: inline-block;">
+            <ion-card class="ion-no-margin ion-text-center menu-card" lines="none">
+                <ion-thumbnail style="width: 100%; height: 120px;">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-thumbnail>
+                <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 45%"></ion-skeleton-text>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6" style=" display: inline-block;">
+            <ion-card class="ion-no-margin ion-text-center menu-card" lines="none">
+                <ion-thumbnail style="width: 100%; height: 120px;">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-thumbnail>
+                <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 45%"></ion-skeleton-text>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6" style=" display: inline-block;">
+            <ion-card class="ion-no-margin ion-text-center menu-card" lines="none">
+                <ion-thumbnail style="width: 100%; height: 120px;">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-thumbnail>
+                <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 45%"></ion-skeleton-text>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6" style=" display: inline-block;">
+            <ion-card class="ion-no-margin ion-text-center menu-card" lines="none">
+                <ion-thumbnail style="width: 100%; height: 120px;">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-thumbnail>
+                <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 45%"></ion-skeleton-text>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6" style=" display: inline-block;">
+            <ion-card class="ion-no-margin ion-text-center menu-card" lines="none">
+                <ion-thumbnail style="width: 100%; height: 120px;">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-thumbnail>
+                <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 45%"></ion-skeleton-text>
+            </ion-card>
+        </ion-col>
+        <ion-col size="6" style=" display: inline-block;">
+            <ion-card class="ion-no-margin ion-text-center menu-card" lines="none">
+                <ion-thumbnail style="width: 100%; height: 120px;">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-thumbnail>
+                <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 45%"></ion-skeleton-text>
+            </ion-card>
+        </ion-col>
+
+
+
+    </div>
+
+
+
+
+
+</ion-content>

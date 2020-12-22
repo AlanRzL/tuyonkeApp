@@ -1,0 +1,121 @@
+<ion-content>
+    <ion-button (click)="closeModal()" class="back-button" expand="block" fill="clear">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-label class="titulo"></ion-label>
+
+    <p class="main-title-light" style="margin-top: 40px; padding-left: 23px;">Nueva autoparte</p>
+
+    <ion-row justify-content-around style="margin: 10px; padding-top: 5px;">
+        <ion-col size="12">
+            <ion-label class="form-label-text">Nombre</ion-label>
+            <ion-input [(ngModel)]="Name" placeholder="Cinturnes de seguridad" clearInput></ion-input>
+        </ion-col>
+        <ion-col size="12">
+            <ion-label class="form-label-text">Yonke</ion-label>
+            <ion-item text-center>
+                <ion-label>Yonke</ion-label>
+                <ion-select [(ngModel)]="ID_Yonke" okText="Ok" cancelText="Cancelar">
+                    <ion-select-option *ngFor="let yonke of yonkes" [value]="yonke.ID_Yonke">{{yonke.Name}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-col>
+        <ion-col size="12">
+            <ion-label class="form-label-text">Marca</ion-label>
+            <ion-item text-center>
+                <ion-label>Auto</ion-label>
+                <ion-select [(ngModel)]="Brand" okText="Ok" cancelText="Cancelar" placeholder="Nissan" (ionChange)="brandChange()">
+                    <ion-select-option value="Acura">Acura</ion-select-option>
+                    <ion-select-option value="Audi">Audi</ion-select-option>
+                    <ion-select-option value="BMW">BMW</ion-select-option>
+                    <ion-select-option value="Buick">Buick</ion-select-option>
+                    <ion-select-option value="Cadillac">Cadillac</ion-select-option>
+                    <ion-select-option value="Chevrolet">Chevrolet</ion-select-option>
+                    <ion-select-option value="Chrysler">Chrysler</ion-select-option>
+                    <ion-select-option value="Dodge">Dodge</ion-select-option>
+                    <ion-select-option value="Fiat">Fiat</ion-select-option>
+                    <ion-select-option value="Ford">Ford</ion-select-option>
+                    <ion-select-option value="GMC">GMC</ion-select-option>
+                    <ion-select-option value="Honda">Honda</ion-select-option>
+                    <ion-select-option value="Hyundai">Hyundai</ion-select-option>
+                    <ion-select-option value="Infiniti">Infiniti</ion-select-option>
+                    <ion-select-option value="Isuzu">Isuzu</ion-select-option>
+                    <ion-select-option value="Jaguar">Jaguar</ion-select-option>
+                    <ion-select-option value="Jeep">Jeep</ion-select-option>
+                    <ion-select-option value="Kia">Kia</ion-select-option>
+                    <ion-select-option value="Land Rover">Land Rover</ion-select-option>
+                    <ion-select-option value="Lexus">Lexus</ion-select-option>
+                    <ion-select-option value="Lincoln">Lincoln</ion-select-option>
+                    <ion-select-option value="Mazda">Mazda</ion-select-option>
+                    <ion-select-option value="Mercedes-Benz">Mercedes-Benz</ion-select-option>
+                    <ion-select-option value="Mercury">Mercury</ion-select-option>
+                    <ion-select-option value="Mini">Mini</ion-select-option>
+                    <ion-select-option value="Mitsubishi">Mitsubishi</ion-select-option>
+                    <ion-select-option value="Nissan">Nissan</ion-select-option>
+                    <ion-select-option value="OldsMobile">OldsMobile</ion-select-option>
+                    <ion-select-option value="Pontiac">Pontiac</ion-select-option>
+                    <ion-select-option value="Peugeot">Peugeot</ion-select-option>
+                    <ion-select-option value="Porsche">Porsche</ion-select-option>
+                    <ion-select-option value="RAM">RAM</ion-select-option>
+                    <ion-select-option value="Renault">Renault</ion-select-option>
+                    <ion-select-option value="Saturn">Saturn</ion-select-option>
+                    <ion-select-option value="Seat">Seat</ion-select-option>
+                    <ion-select-option value="Smart">Smart</ion-select-option>
+                    <ion-select-option value="Subaru">Subaru</ion-select-option>
+                    <ion-select-option value="Suzuki">Suzuki</ion-select-option>
+                    <ion-select-option value="Tesla">Tesla</ion-select-option>
+                    <ion-select-option value="Toyota">Toyota</ion-select-option>
+                    <ion-select-option value="Universal">Universal</ion-select-option>
+                    <ion-select-option value="Volkswagen">Volkswagen</ion-select-option>
+                    <ion-select-option value="Volvo">Volvo</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+
+        </ion-col>
+        <ion-col size="6" *ngIf="Brand != 'Universal'">
+            <ion-label class="form-label-text">Modelo</ion-label>
+            <ion-input [(ngModel)]="Model" placeholder="March" clearInput></ion-input>
+        </ion-col>
+        <ion-col size="6" *ngIf="Brand != 'Universal'">
+            <ion-label class="form-label-text">Año</ion-label>
+            <ion-input type="tel" [(ngModel)]="Year" min="999" max="2021" placeholder="2014" clearInput></ion-input>
+        </ion-col>
+        <ion-col size="12" style="margin-bottom: 0px;">
+            <ion-label class="form-label-text">Información extra</ion-label>
+            <ion-textarea [(ngModel)]="Description" rows="6" clearOnEdit="true"></ion-textarea>
+        </ion-col>
+
+    </ion-row>
+
+
+    <section style="padding:7px">
+        <div>
+            <ion-col *ngFor="let image of tempImages" size="3" style=" display: inline-block;">
+                <ion-card class="ion-no-padding ion-no-margin" lines="none" size="3">
+                    <img class="details-image" [src]="image">
+                </ion-card>
+            </ion-col>
+        </div>
+
+
+        <ion-row>
+            <ion-col size="6">
+                <ion-button *ngIf="tempImages.length < 4" [disabled]="ID_Yonke == 0 || Brand == ''  ||  Model == '' ||  Year  == ''  ||  Description == '' " expand="block " color="primary " (click)="openGallery() ">Galeria
+                    <ion-icon slot="start" name="images"></ion-icon>
+                </ion-button>
+            </ion-col>
+            <ion-col size="6" style="margin-bottom: 0px;">
+                <ion-button *ngIf="tempImages.length < 4" [disabled]="ID_Yonke == 0 || Brand == ''  ||  Model == '' ||  Year  == ''  ||  Description == '' " expand="block " color="primary " (click)="openCamera() ">Camera
+                    <ion-icon slot="start" name="camera"></ion-icon>
+                </ion-button>
+            </ion-col>
+
+        </ion-row>
+
+
+        <ion-button *ngIf="tempImages.length > 0" expand="block" color="primary" (click)="postPart() ">Publicar</ion-button>
+
+
+    </section>
+</ion-content>
